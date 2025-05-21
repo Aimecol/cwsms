@@ -27,7 +27,7 @@ Before you begin, ensure you have the following installed:
 3.  Clone the repository using the following command:
 
     ```bash
-    git clone [<repository_url>](https://github.com/Aimecol/cwsms.git) CWSMS
+    git clone https://github.com/Aimecol/cwsms.git
     cd CWSMS
     ```
 
