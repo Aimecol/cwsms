@@ -247,21 +247,27 @@ function ServicePackagePage() {
                 return (
                   <tr key={servicePackage.RecordNumber}>
                     <td>{servicePackage.RecordNumber}</td>
-                    <td>{new Date(servicePackage.ServiceDate).toLocaleDateString()}</td>
+                    <td>
+                      {new Date(
+                        servicePackage.ServiceDate
+                      ).toLocaleDateString()}
+                    </td>
                     <td>{servicePackage.PlateNumber}</td>
                     <td>{car.DriverName}</td>
                     <td>{pkg.PackageName}</td>
                     <td>${pkg.PackagePrice}</td>
                     <td>
                       <button
-                        className="btn btn-sm btn-info"
+                        className="btn btn-sm btn-primary"
                         onClick={() => handleEdit(servicePackage)}
                       >
                         Edit
                       </button>
                       <button
                         className="btn btn-sm btn-danger"
-                        onClick={() => handleDelete(servicePackage.RecordNumber)}
+                        onClick={() =>
+                          handleDelete(servicePackage.RecordNumber)
+                        }
                       >
                         Delete
                       </button>

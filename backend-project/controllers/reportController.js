@@ -8,7 +8,7 @@ exports.getDailySalesReport = async (req, res) => {
       SELECT 
         DATE_FORMAT(p.PaymentDate, '%Y-%m-%d') as Date,
         COUNT(p.PaymentNumber) as TotalServices,
-        SUM(p.AmountPaid) as TotalRevenue
+        COALESCE(SUM(p.AmountPaid), 0) as TotalRevenue
       FROM Payment p
     `;
     
@@ -37,7 +37,7 @@ exports.getPackagePopularityReport = async (req, res) => {
         p.PackageNumber,
         p.PackageName,
         COUNT(sp.RecordNumber) as TimesUsed,
-        SUM(pay.AmountPaid) as TotalRevenue
+        COALESCE(SUM(pay.AmountPaid), 0) as TotalRevenue
       FROM Package p
       LEFT JOIN ServicePackage sp ON p.PackageNumber = sp.PackageNumber
       LEFT JOIN Payment pay ON sp.RecordNumber = pay.RecordNumber
@@ -60,7 +60,7 @@ exports.getCustomerFrequencyReport = async (req, res) => {
         c.DriverName,
         c.PhoneNumber,
         COUNT(sp.RecordNumber) as VisitCount,
-        SUM(pay.AmountPaid) as TotalSpent,
+        COALESCE(SUM(pay.AmountPaid), 0) as TotalSpent,
         MAX(pay.PaymentDate) as LastVisit
       FROM Car c
       LEFT JOIN ServicePackage sp ON c.PlateNumber = sp.PlateNumber
@@ -82,8 +82,8 @@ exports.getRevenueByCarTypeReport = async (req, res) => {
       SELECT 
         c.CarType,
         COUNT(sp.RecordNumber) as ServiceCount,
-        SUM(pay.AmountPaid) as TotalRevenue,
-        AVG(pay.AmountPaid) as AverageRevenue
+        COALESCE(SUM(pay.AmountPaid), 0) as TotalRevenue,
+        COALESCE(AVG(pay.AmountPaid), 0) as AverageRevenue
       FROM Car c
       LEFT JOIN ServicePackage sp ON c.PlateNumber = sp.PlateNumber
       LEFT JOIN Payment pay ON sp.RecordNumber = pay.RecordNumber
@@ -105,7 +105,7 @@ exports.getMonthlyRevenueReport = async (req, res) => {
       SELECT 
         DATE_FORMAT(p.PaymentDate, '%Y-%m') as Month,
         COUNT(p.PaymentNumber) as TotalServices,
-        SUM(p.AmountPaid) as TotalRevenue
+        COALESCE(SUM(p.AmountPaid), 0) as TotalRevenue
       FROM Payment p
     `;
     

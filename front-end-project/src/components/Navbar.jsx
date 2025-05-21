@@ -34,12 +34,9 @@ function Navbar({ currentPage, setCurrentPage }) {
         <li className={`nav-item ${currentPage === 'payment' ? 'active' : ''}`}>
           <a href="#" onClick={() => handleNavClick('payment')}>Payments</a>
         </li>
-        <li className={`nav-item ${currentPage === 'report' ? 'active' : ''}`}>
+        {/* <li className={`nav-item ${currentPage === 'report' ? 'active' : ''}`}>
           <a href="#" onClick={() => handleNavClick('report')}>Reports</a>
-        </li>
-        <li className="nav-item">
-          <a href="#" onClick={() => alert('Logout functionality would go here')}>Logout</a>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

@@ -14,17 +14,14 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// Test database connection
-const testConnection = async () => {
-  try {
-    const connection = await pool.getConnection();
+// Test the connection
+pool.getConnection()
+  .then(connection => {
     console.log('Database connected successfully');
     connection.release();
-  } catch (error) {
-    console.error('Database connection failed:', error);
-  }
-};
-
-testConnection();
+  })
+  .catch(err => {
+    console.error('Database connection error:', err);
+  });
 
 module.exports = pool;

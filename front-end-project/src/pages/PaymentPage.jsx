@@ -237,10 +237,12 @@ function PaymentPage() {
                     <td>{payment.DriverName}</td>
                     <td>{payment.PackageName}</td>
                     <td>${payment.AmountPaid}</td>
-                    <td>{new Date(payment.PaymentDate).toLocaleDateString()}</td>
+                    <td>
+                      {new Date(payment.PaymentDate).toLocaleDateString()}
+                    </td>
                     <td>
                       <button
-                        className="btn btn-sm btn-info"
+                        className="btn btn-sm btn-primary"
                         onClick={() => handleEdit(payment)}
                       >
                         Edit
