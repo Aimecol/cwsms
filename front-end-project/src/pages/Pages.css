@@ -1,0 +1,94 @@
+/* Add these styles to your existing Pages.css file */
+
+/* Report page specific styles */
+.report-controls {
+  margin-bottom: 20px;
+}
+
+.report-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.report-tab {
+  padding: 8px 15px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.report-tab:hover {
+  background-color: #e0e0e0;
+}
+
+.report-tab.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #0069d9;
+}
+
+.report-filters {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.report-filters .form-group {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group label {
+    color: #333;
+}
+
+.report-container {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.report-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.table-container {
+    color: #333;
+}
+
+/* Responsive adjustments for reports */
+@media (max-width: 768px) {
+  .report-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .report-tab {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .report-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .report-filters .form-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
