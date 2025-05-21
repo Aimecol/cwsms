@@ -24,10 +24,10 @@ Before you begin, ensure you have the following installed:
 
 1.  Open your terminal or command prompt.
 2.  Navigate to the directory where you want to clone the project (e.g., `c:\xampp\htdocs\`).
-3.  Clone the repository using the following command (replace `<repository_url>` with the actual URL):
+3.  Clone the repository using the following command:
 
     ```bash
-    git clone <repository_url> CWSMS
+    git clone [<repository_url>](https://github.com/Aimecol/cwsms.git) CWSMS
     cd CWSMS
     ```
 
